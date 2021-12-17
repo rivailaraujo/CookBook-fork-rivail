@@ -15,8 +15,8 @@ public class Catalogo {
 
     public void add(Receita nova) {
         if (nova != null && !nova.getNome().isBlank()) {
-            if (!receitas.contains(nova)) {
-                receitas.add(nova);
+            if (!this.receitas.contains(nova)) {
+                this.receitas.add(nova);
             }
         }
     }

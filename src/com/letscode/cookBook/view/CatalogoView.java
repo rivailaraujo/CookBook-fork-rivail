@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class CatalogoView {
     private final Receita NONE_FOUND = new Receita("Nenhuma receita encontrada", Categoria.PRATO_UNICO, null);
     private Receita receita;
-    Catalogo controller;
+    Catalogo controller = new Catalogo();
     private int curIndex = -1;
     private NovaReceitaView novaReceitaView;
 
@@ -30,13 +30,17 @@ public class CatalogoView {
     private void showAnterior() {
         if (curIndex > 0) {
             this.receita = controller.getReceita(curIndex - 1);
-            if (receita != null) curIndex--;
+            if (receita != null){
+                curIndex--;
+            }
         }
+        this.show();
     }
 
     private void showSeguinte() {
         this.receita = controller.getReceita(curIndex + 1);
         if (receita != null) curIndex++;
+        this.show();
     }
 
     private void add() {
@@ -46,7 +50,12 @@ public class CatalogoView {
         novaReceitaView.askCategoria();
         novaReceitaView.askRendimento();
         novaReceitaView.setReceita();
-        this.receita = novaReceitaView.receita;
+        novaReceitaView.askTempo();
+        novaReceitaView.askIgrediente();
+        novaReceitaView.askModoPreparo();
+        this.receita = novaReceitaView.getReceita();
+        this.controller.add(this.receita);
+        curIndex++;
         this.show();
     }
 
