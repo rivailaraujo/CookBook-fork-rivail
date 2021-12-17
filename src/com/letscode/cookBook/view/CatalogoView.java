@@ -44,7 +44,6 @@ public class CatalogoView {
     }
 
     private void add() {
-        //TODO: Implement Add
         novaReceitaView = new NovaReceitaView();
         novaReceitaView.askNome();
         novaReceitaView.askCategoria();

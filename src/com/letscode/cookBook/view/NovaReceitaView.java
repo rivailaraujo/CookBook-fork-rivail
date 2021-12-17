@@ -40,7 +40,7 @@ public class NovaReceitaView {
     }
 
     public void askTempo(){
-        System.out.println("Qual o tempo de preparo?");
+        System.out.println("Qual o tempo de preparo (em minutos)?");
         tempoDePreparo = scanner.nextInt();
         if (tempoDePreparo <= 0) {
             System.out.println("Tempo inválido!");
