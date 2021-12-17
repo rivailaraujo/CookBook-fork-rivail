@@ -13,10 +13,11 @@ public class Receita {
     private List<Ingrediente> ingredientes;
     private String[] modoPreparo;
 
-    public Receita(String nome, Categoria categoria) {
+    public Receita(String nome, Categoria categoria, Rendimento rendimento) {
         this.ingredientes = new ArrayList<>();
         this.nome = nome;
         this.categoria = categoria;
+        this.rendimento = rendimento;
     }
 
     public String getNome() {

@@ -7,10 +7,11 @@ import com.letscode.cookBook.enums.Categoria;
 import java.util.Scanner;
 
 public class CatalogoView {
-    private final Receita NONE_FOUND = new Receita("Nenhuma receita encontrada", Categoria.PRATO_UNICO);
+    private final Receita NONE_FOUND = new Receita("Nenhuma receita encontrada", Categoria.PRATO_UNICO, null);
     private Receita receita;
     Catalogo controller;
     private int curIndex = -1;
+    private NovaReceitaView novaReceitaView;
 
     private void showHeader() {
         ScreenUtil.printTextLine("", 80, true, '=');
@@ -40,6 +41,13 @@ public class CatalogoView {
 
     private void add() {
         //TODO: Implement Add
+        novaReceitaView = new NovaReceitaView();
+        novaReceitaView.askNome();
+        novaReceitaView.askCategoria();
+        novaReceitaView.askRendimento();
+        novaReceitaView.setReceita();
+        this.receita = novaReceitaView.receita;
+        this.show();
     }
 
     private void del() {
